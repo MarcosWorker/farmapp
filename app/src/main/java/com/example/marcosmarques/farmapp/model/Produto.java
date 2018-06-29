@@ -36,6 +36,8 @@ public class Produto extends RealmObject {
     private String fabricante;
     @Required
     private String codigoFarmacia;
+    @Required
+    private String imagem;
     private double preco;
 
     public Produto() {
@@ -167,5 +169,13 @@ public class Produto extends RealmObject {
 
     public void setCodigoFarmacia(String codigoFarmacia) {
         this.codigoFarmacia = codigoFarmacia;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 }
