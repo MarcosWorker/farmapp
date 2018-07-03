@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_menu_cliente_adicionar"
+        android:title="Adicionar" />
+    <item
+        android:id="@+id/item_menu_cliente_apagar_todos"
+        android:title="Formatar" />
+    <item
+        android:id="@+id/item_menu_cliente_inicio"
+        android:title="Inicio" />
+
+</menu>

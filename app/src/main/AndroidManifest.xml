@@ -17,7 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".flow.ClientesActivity"></activity>
+        <activity android:name=".flow.ClientesActivity" />
+        <activity android:name=".flow.AdicionarClienteActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.marcosmarques.farmapp.flow;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 import com.example.marcosmarques.farmapp.R;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Tela Carrinho em construção", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.item_menu_main_clientes:
-                Toast.makeText(this, "Tela Clientes em construção", Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this ,ClientesActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.item_menu_main_historico:
                 Toast.makeText(this, "Tela Historico em construção", Toast.LENGTH_SHORT).show();
