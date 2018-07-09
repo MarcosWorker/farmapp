@@ -29,7 +29,6 @@ public class AdicionarClienteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adicionar_cliente);
-        setTitle("Novo Cliente");
 
         realm = Realm.getDefaultInstance();
 
@@ -39,6 +38,21 @@ public class AdicionarClienteActivity extends AppCompatActivity {
         tvNome = findViewById(R.id.nome_novo_cliente);
         tvTelefone = findViewById(R.id.telefone_novo_cliente);
         btSalvar = findViewById(R.id.botao_salvar_cliente);
+
+        if(null != getIntent()){
+            if(getIntent().getStringExtra("tela").equals("novo")){
+                setTitle("Novo Cliente");
+            }else if(getIntent().getStringExtra("tela").equals("editar")){
+                setTitle("Editar Cliente");
+                //preencher dados do cliente
+                Cliente cliente = realm.where(Cliente.class).equalTo("id", getIntent().getStringExtra("id")).findFirst();
+                tvCpf.setText(cliente.getCpf());
+                tvTelefone.setText(cliente.getFone());
+                tvEndereco.setText(cliente.getEndereco());
+                tvNome.setText(cliente.getNome());
+                tvEmail.setText(cliente.getEmail());
+            }
+        }
 
         btSalvar.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -69,9 +68,6 @@ public class ClientesActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
-        TouchHelperCallback touchHelperCallback = new TouchHelperCallback();
-        ItemTouchHelper touchHelper = new ItemTouchHelper(touchHelperCallback);
-        touchHelper.attachToRecyclerView(recyclerView);
     }
 
     @Override
@@ -79,27 +75,5 @@ public class ClientesActivity extends AppCompatActivity {
         super.onDestroy();
         recyclerView.setAdapter(null);
         realm.close();
-    }
-
-    private class TouchHelperCallback extends ItemTouchHelper.SimpleCallback {
-
-        TouchHelperCallback() {
-            super(ItemTouchHelper.UP | ItemTouchHelper.DOWN, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
-        }
-
-        @Override
-        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-            return true;
-        }
-
-        @Override
-        public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction) {
-
-        }
-
-        @Override
-        public boolean isLongPressDragEnabled() {
-            return true;
-        }
     }
 }

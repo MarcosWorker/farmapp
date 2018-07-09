@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.item_menu_main_clientes:
                 intent = new Intent(MainActivity.this ,ClientesActivity.class);
+                intent.putExtra("tela","novo");
                 startActivity(intent);
                 return true;
             case R.id.item_menu_main_historico:
